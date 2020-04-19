@@ -1,0 +1,11 @@
+{
+    "free access": "no",
+    "access": [
+        "developer",
+        "admin"
+    ],
+    "privileges": [
+        "developer",
+        "admin"
+    ]
+}

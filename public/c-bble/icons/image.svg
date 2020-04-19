@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="image" viewBox="0 0 512 512">
+		<polygon fill="#8F8D8D" points="168,87 418,87 418,452 118,452 118,137 "/>
+		<polygon fill="#EDEDED" points="176,73 406,73 406,438 106,438 106,143 "/>
+		<polygon fill="#BFBFBF" points="177,72 106,143 177,143 "/>
+		<rect fill="#CFCFCF" x="146" y="202" width="220" height="160"/>
+		<circle fill="#EDEDED" cx="256" cy="277" r="35"/>
+		<polygon fill="#8F8D8D" points="367,362 146,362 214,295 238,319 308,249 367,308 "/>
+		<polygon fill="white" points="344,284 308,249 272,284 286,279 293,290 300,282 310,302 318,285 328,293 334,282 "/>
+		<polygon fill="white" points="244,324 213,294 183,324 194,320 196,329 207,323 215,335 221,320 227,326 231,320 "/>
+	</g>
+</svg>

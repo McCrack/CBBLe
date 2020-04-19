@@ -1,0 +1,26 @@
+{
+    "site name": "AProject",
+    "email": "datamorg@gmail.com",
+    "logo": "https:\/\/aproject.in.ua\/logo.png",
+    "language": "uk",
+    "locality": "ua",
+    "languages": [
+        "ua",
+        "ru",
+        "en"
+    ],
+    "localities": [
+        "ua",
+        "ru",
+        "en"
+    ],
+    "currency": {
+        "UAH": "1.00",
+        "USD": "28.00",
+        "EUR": "32.00"
+    },
+    "phones": [
+        "+38(000) 000-0000",
+        "+38(000) 000-0000"
+    ]
+}

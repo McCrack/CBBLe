@@ -1,0 +1,405 @@
+/*~~~ FONTS ~~~*/
+@font-face{
+    font-family:Icons;
+    src:url(/c-bble/fonts/Emoji.woff) format("woff");
+}
+
+.icon {
+    font-family: Icons, Roboto;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+    margin: 5px 0;
+    line-height: 1.1;
+}
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+
+body > main {
+    min-height: calc(100vh - 64px);
+}
+body > main > aside {
+    border-right: 1px solid #DDD;
+    background-color: var(--sidebar-bg);
+    box-shadow: 8px 0 10px -8px #00000060;
+}
+body > main > aside > nav{
+    min-width: 280px
+}
+@media (max-width:884px) {
+    /** Sidebar **/
+    body > main > aside {
+        top: 0;
+        left:0;
+        z-index: 3;
+        height: 100%;
+        max-width: 380px;
+        position: absolute;
+        transition: width .5s ease-out;
+    }
+    #sidebar-toggler:not(:checked) ~ main > aside {
+        width: 0;
+    }
+    #sidebar-toggler:checked ~ main > aside {
+        width: 100%;
+    }
+}
+@media (min-width:885px) {
+    body > main {
+        grid-template-columns: 350px auto;
+    }
+}
+
+/** POP-UPs **/
+.mount,
+.modal-mount > .pop-up {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pop-up-body {
+    max-width: 95vw;
+    max-height: 86vh;
+    min-width: 200px;
+}
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+
+/** Form Elements **/
+.field {
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px solid #CCC;
+}
+input.field,
+select.field {
+    height: 32px;
+    padding: 5px 10px;
+}
+textarea {
+    font-size: 14px;
+    font-family: Roboto;
+}
+fieldset {
+    margin: 0;
+    padding: 10px;
+    border-width: 0;
+}
+
+.is-invalid {
+    color: var(--danger);
+    outline: 1px solid var(--danger);
+}
+
+.required::after {
+    content: "*";
+    color: OrangeRed;
+    font-size: 14px;
+    margin-left: 1px;
+    vertical-align: top;
+}
+
+/** Custom Select **/
+.select {
+    font-size: 0;
+    overflow: visible;
+    position: relative;
+    border-radius: 3px;
+    display:inline-block;
+    vertical-align: middle;
+    border: 1px solid #AAA;
+    height: 30px;
+}
+.select::before {
+    content: "›";
+    top: 8px;
+    right: 5px;
+    width: 18px;
+    z-index: -1;
+    font-size: 18px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    transform: rotate(90deg);
+}
+.select > input {
+    height: 100%;
+    border-width: 0;
+    background-color: transparent;
+}
+.select > fieldset {
+    padding: 0;
+    overflow: hidden;
+    transition: max-height .5s;
+}
+.select > fieldset.t {
+    bottom: 100%;
+}
+.select > fieldset > label {
+    display: block;
+    cursor: pointer;
+    margin-top: 1px;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+.select > input:not(:focus) + fieldset {
+    max-height: 0;
+}
+.select > input:focus + fieldset {
+    max-height: 25vh;
+}
+
+.disabled {
+    opacity: .6;
+    pointer-events: none;
+    filter: grayscale(100);
+}
+
+/** Buttons **/
+.btn {
+    border-width: 0;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.btn-sm{
+    font-size: 11px;
+    padding: 5px 12px;
+}
+.btn-md{
+    height: 32px;
+    font-size: 12px;
+    padding: 6px 20px;
+}
+.btn-lg{
+    font-size: 13px;
+    padding: 9px 30px;
+}
+
+.tags-field {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: white;
+    box-shadow: inset 0 0 10px -6px #000000AA;
+}
+.tags-field > input {
+    flex-basis: 100%;
+    height: 100%;
+    min-width: 0;
+    border-width: 0;
+    outline: none !important;
+    background-color: transparent;
+}
+.tag {
+    color:white;
+    margin-left: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    border-radius: 5px;
+    pointer-events: none;
+    padding: 5px 10px 2px 10px;
+    background-color: var(--danger);
+    box-shadow: 4px 4px 4px -2px #00000060;
+}
+.tag::after {
+    top: 0;
+    right: 0;
+    content: "✕";
+    font-size: 9px;
+    padding: 0 2px;
+    position: absolute;
+    pointer-events: all;
+}
+.tag:nth-child(1),
+.tag:nth-child(2) {
+    background-color: var(--success);
+}
+.tag:nth-child(3) {
+    background-color: var(--warning);
+}
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+
+.add-icon,
+.remove-icon {
+    position: relative;
+}
+.add-icon::after,
+.remove-icon::after {
+    right: 0;
+    bottom: 0;
+    font-size: 80%;
+    position: absolute;
+}
+.add-icon::after {
+    content: "✚";
+}
+.remove-icon::after {
+    content: "✖";
+}
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+
+#save-indicator{
+    line-height: 42px;
+}
+#save-indicator > input:checked + label {
+    background-color: var(--danger);
+}
+#save-indicator > input:not(:checked) + label {
+    background-color: var(--light-bg);
+}
+
+/** Hamburger **/
+.hamburger{
+    width: 26px;
+    height: 14px;
+    margin: 6px;
+    border: 0 solid var(--light-bg);
+    border-width: 2px 0;
+    transition: border-color .5s;
+    /*mix-blend-mode: difference;*/
+}
+.hamburger > span{
+    top: 6px;
+    width: 100%;
+    height: 2px;
+    background-color: #FFF;
+    transition: transform .5s;
+}
+#sidebar-toggler:checked + div .sidebar-toggler > .hamburger {
+    border-color: transparent;
+}
+#sidebar-toggler:checked + div .sidebar-toggler > .hamburger > span:nth-child(1) {
+    transform: rotate(45deg);
+}
+#sidebar-toggler:checked + div .sidebar-toggler > .hamburger > span:nth-child(2){
+    transform: rotate(-45deg);
+}
+
+/** Tooltips **/
+.tooltip {
+    position: relative;
+}
+.tooltip::before {
+    
+    content: attr(data-title);
+    position: absolute;
+    text-align: center;
+    color: var(--tooltip-txt);
+    background-color: var(--tooltip-bg);
+}
+.tooltip:after,
+.tooltip::before {
+    position: absolute;
+    transition: all .3s ease-out;
+}
+.tooltip:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+}
+.tooltip.b:after {
+    margin-top: -16px;
+    border-bottom: 8px solid var(--tooltip-bg);
+}
+.tooltip.t:after {
+    margin-bottom: -16px;
+    border-top: 8px solid var(--tooltip-bg);
+}
+.tooltip.l:after {
+    margin-right: -16px;
+    border-left: 8px solid var(--tooltip-bg);
+}
+.tooltip.r:after {
+    margin-left: -16px;
+    border-right: 8px solid var(--tooltip-bg);
+}
+.tooltip.t:after,
+.tooltip.t::before {
+    bottom: 115%;
+}
+.tooltip.b:after,
+.tooltip.b::before {
+    top: 115%;
+}
+.tooltip.l:after,
+.tooltip.l::before {
+    right: 115%;
+}
+.tooltip.r:after,
+.tooltip.r::before {
+    left: 115%;
+}
+.tooltip.t::after,
+.tooltip.t::before,
+.tooltip.b::after,
+.tooltip.b::before {
+    left:50%;
+    transform: translateX(-50%);
+}
+.tooltip.l::after,
+.tooltip.l::before,
+.tooltip.r::after,
+.tooltip.r::before {
+    top:50%;
+    transform: translateY(-50%);
+}
+.tooltip:not(:hover)::after,
+.tooltip:not(:hover)::before {
+    opacity: 0;
+    z-index: -1 !important;
+}
+.tooltip.t:not(:hover)::after,
+.tooltip.t:not(:hover)::before {
+    bottom: 0;
+}
+.tooltip.b:not(:hover)::after,
+.tooltip.b:not(:hover)::before {
+    top: 0;
+}
+.tooltip.l:not(:hover)::after,
+.tooltip.l:not(:hover)::before {
+    right: 0;
+}
+.tooltip.r:not(:hover)::after,
+.tooltip.r:not(:hover)::before {
+    left: 0;
+}
+
+/** Explorer **/
+.explorer {
+    grid-template-rows: repeat(auto-fill, minmax(100px, max-content));
+    grid-template-columns: repeat(auto-fill, minmax(140px, max-content));
+}
+.file > div,
+.folder > div {
+    padding: 8px;
+    word-wrap: break-word;
+    border: 1px solid transparent;
+}
+
+/** Context Menu **/
+.context-menu {
+    width: 150px;
+    padding: 2px 6px;
+}
+.context-menu > button {
+    width: 100%;
+    padding: 8px;
+}
+.context-menu > button:not(:last-child) {
+    border-bottom: 1px solid #DDD;
+}

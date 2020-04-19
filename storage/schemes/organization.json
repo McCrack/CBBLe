@@ -1,0 +1,27 @@
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "page.name",
+    "url": "app.url",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "app.logo",
+        "width": "",
+        "height": ""
+    },
+    "email": "",
+    "sameAs": [],
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "",
+        "streetAddress": ""
+    },
+    "contactPoint": [
+        {
+            "@type": "ContactPoint",
+            "telephone": "",
+            "contactType": "",
+            "areaServed": ""
+        }
+    ]
+}

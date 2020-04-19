@@ -1,0 +1,366 @@
+/*~~~ FONTS ~~~*/
+@font-face {
+    font-family: Roboto;
+    src: local(Roboto Light), local(Roboto-Thin),
+        url(/c-bble/fonts/Roboto/Roboto-Thin.eot);
+    src: url(/c-bble/fonts/Roboto/Roboto-Thin.eot?#iefix) format("embedded-opentype"),
+        url(/c-bble/fonts/Roboto/Roboto-Thin.woff2) format("woff2"),
+        url(/c-bble/fonts/Roboto/Roboto-Thin.woff) format("woff"),
+        url(/c-bble/fonts/Roboto/Roboto-Thin.ttf) format("truetype");
+    font-weight: 200;
+    font-display: swap;
+}
+@font-face {
+    font-family: Roboto;
+    src: local(Roboto Light), local(Roboto-Light),
+        url(/c-bble/fonts/Roboto/Roboto-Light.eot);
+    src: url(/c-bble/fonts/Roboto/Roboto-Light.eot?#iefix) format("embedded-opentype"),
+        url(/c-bble/fonts/Roboto/Roboto-Light.woff2) format("woff2"),
+        url(/c-bble/fonts/Roboto/Roboto-Light.woff) format("woff"),
+        url(/c-bble/fonts/Roboto/Roboto-Light.ttf) format("truetype");
+    font-weight: 300;
+    font-display: swap;
+}
+@font-face {
+    font-family: Roboto;
+    src: local(Roboto Regular), local(Roboto-Regular),
+        url(/c-bble/fonts/Roboto/Roboto-Regular.eot);
+    src: url(/c-bble/fonts/Roboto/Roboto-Regular.eot?#iefix) format("embedded-opentype"),
+        url(/c-bble/fonts/Roboto/Roboto-Regular.woff2) format("woff2"),
+        url(/c-bble/fonts/Roboto/Roboto-Regular.woff) format("woff"),
+        url(/c-bble/fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: Roboto;
+    src: local("Roboto Medium"), local("Roboto-Medium"),
+        url(/c-bble/fonts/Roboto/Roboto-Medium.eot);
+    src: url(/c-bble/fonts/Roboto/Roboto-Medium.eot?#iefix) format("embedded-opentype"),
+        url(/c-bble/fonts/Roboto/Roboto-Medium.woff2) format("woff2"),
+        url(/c-bble/fonts/Roboto/Roboto-Medium.woff) format("woff"),
+        url(/c-bble/fonts/Roboto/Roboto-Medium.ttf) format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: Roboto;
+    src: local("Roboto Bold"), local("Roboto-Bold"),
+        url(/c-bble/fonts/Roboto/Roboto-Bold.eot);
+    src: url(/c-bble/fonts/Roboto/Roboto-Bold.eot?#iefix) format("embedded-opentype"),
+        url(/c-bble/fonts/Roboto/Roboto-Bold.woff2) format("woff2"),
+        url(/c-bble/fonts/Roboto/Roboto-Bold.woff) format("woff"),
+        url(/c-bble/fonts/Roboto/Roboto-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+/*~~~ ~~~~~ ~~~*/
+
+body {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Roboto;
+}
+
+tr:nth-child(odd) {
+    background-color: #FFF;
+}
+tr:nth-child(even) {
+    background-color: #F3F3F3;
+}
+
+/*~ VARIABLES ~*/
+:root {
+    --primary:          #30A0F0;
+    --success:          #00CAAA;
+    --warning:          orange;
+    --danger:           #EC5051;
+    
+    --light-bg:         #F3F3F3;
+    --dark-bg:          #222;
+    
+    --main-bg:          white;
+    --soft-bg:          #F0F0F0;
+    --bar-bg:           #102030;
+    --sidebar-bg:       #202D38;
+    --tooltip-bg:       crimson;
+
+    --main-txt:         #222;
+    --dark-txt:         #444;
+    --light-txt:        #BBB;
+    --tooltip-txt:       white;
+}
+
+
+
+/*~~~ COLORS ~~~*/
+
+.main-bg {
+    background-color: var(--main-bg);
+}
+.soft-bg {
+    background-color: var(--soft-bg);
+}
+.bar-bg {
+    background-color: var(--bar-bg);
+}
+.sidebar-bg {
+    background-color: var(--sidebar-bg);
+}
+.main-light-bg {
+    background-color: var(--main-light-bg);
+}
+.main-dark-bg {
+    background-color: var(--main-dark-bg);
+}
+.light-bg {
+    background-color: var(--light-bg);
+}
+.dark-bg {
+    background-color: var(--dark-bg);
+}
+.primary-bg {
+    background-color: var(--primary);
+}
+.success-bg {
+    background-color: var(--success);
+}
+.warning-bg {
+    background-color: var(--warning);
+}
+.danger-bg {
+    background-color: var(--danger);
+}
+/*~~~*/
+
+.main-txt {
+    color: var(--main-txt);
+}
+.light-txt {
+    color: var(--light-txt);
+}
+.dark-txt {
+    color: var(--dark-txt);
+}
+.primary-txt {
+    color: var(--primary);
+}
+.success-txt {
+    color: var(--success);
+}
+.warning-txt {
+    color: var(--warning);
+}
+.danger-txt {
+    color: var(--danger);
+}
+
+.light-rainbow {
+    color: #333;
+    background-image: repeating-linear-gradient(
+        180deg,
+        #EEE,
+        #FFF,
+        #DADADA
+    );
+}
+.dark-rainbow {
+    color: white;
+    background-image: repeating-linear-gradient(
+        180deg,
+        #2A2A2A,
+        #333,
+        #0A0A0A
+    );
+}
+.primary-rainbow {
+    color: white;
+    background-image: repeating-linear-gradient(
+        180deg,
+        #3CACFC,
+        #40B0FF,
+        #2090E0
+    );
+}
+.success-rainbow {
+    color: white;
+    background-image: repeating-linear-gradient(
+        180deg,
+        #0B9,
+        #1CB,
+        #0A8
+    );
+}
+.warning-rainbow {
+    color: white;
+    background-image:  repeating-linear-gradient(
+        180deg,
+        #E83,
+        #F94,
+        #D72
+    );
+}
+.danger-rainbow {
+    color: white;
+    background-image: repeating-linear-gradient(
+        180deg,
+        #EC5050,
+        #FC6060,
+        #DC4040
+    );
+}
+.substrate {
+    background-color: #FFFFFFEE;
+}
+
+.shadow-light{
+    box-shadow: 8px 8px 5px -8px #00000060;
+}
+.shadow-bold{
+    box-shadow: 8px 8px 10px -6px #000000A0;
+}
+
+.disabled {
+    opacity: .8;
+    filter: grayscale(1);
+    pointer-events: all;
+}
+
+/** Hovers **/
+.hover-underline:hover {
+    text-decoration: underline;
+}
+.hover-font-large:hover {
+    font-size: 150%;
+}
+
+.hover-primary-txt:hover {
+    color: var(--primary) !important;
+}
+.hover-success-txt:hover {
+    color: var(--success) !important;
+}
+.hover-warning-txt:hover {
+    color: var(--warning) !important;
+}
+.hover-danger-txt:hover {
+    color: var(--danger) !important;
+}
+
+.hover-primary-bg:hover {
+    color: white;
+    background-color: var(--primary) !important;
+}
+.hover-success-bg:hover {
+    color: white;
+    background-color: var(--success) !important;
+}
+.hover-warning-bg:hover {
+    color: white;
+    background-color: var(--warning) !important;
+}
+.hover-danger-bg:hover {
+    color: white;
+    background-color: var(--danger) !important;
+}
+.hover-light-bg:hover {
+    color: #333;
+    background-image: repeating-linear-gradient(
+        180deg,
+        #EEE,
+        #FFF,
+        #DADADA
+    ) !important;
+}
+.hover-dark-bg:hover {
+    color: white;
+    background-image: repeating-linear-gradient(
+        180deg,
+        #222,
+        #333,
+        #111
+    ) !important;
+}
+
+/** Checkeds **/
+.checked-bold:checked + label {
+    font-weight: bold;
+}
+.checked-underline:checked + label {
+    text-decoration: underline;
+}
+.checked-white-txt:checked + label {
+    color: white !important;
+}
+.checked-black-txt:checked + label {
+    color: black !important;
+}
+.checked-primary-txt:checked + label {
+    color: var(--primary) !important;
+}
+.checked-success-txt:checked + label {
+    color: var(--success) !important;
+}
+.checked-warning-txt:checked + label {
+    color: var(--warning) !important;
+}
+.checked-danger-txt:checked + label {
+    color: var(--danger) !important;
+}
+.checked-primary-bg:checked + label {
+    color: white !important;
+    background-color: var(--primary) !important;
+}
+.checked-success-bg:checked + label {
+    color: white !important;
+    background-color: var(--success) !important;
+}
+.checked-warning-bg:checked + label {
+    color: white !important;
+    background-color: var(--warning) !important;
+}
+.checked-danger-bg:checked + label {
+    color: white !important;
+    background-color: var(--danger) !important;
+}
+.checked-white-bg:checked + label {
+    color: var(--dark-txt);
+    background-color: white !important;
+}
+.checked-black-bg:checked + label {
+    color: var(--light-txt);
+    background-color: black !important;
+}
+.checked-dark-bg:checked + label {
+    color: white;
+    background-color: var(--dark-bg) !important;
+}
+.checked-light-bg:checked + label {
+    color: black;
+    background-color: var(--light-bg) !important;
+}
+
+/** Tooltips **/
+.tooltip::before {
+    padding: 6px;
+    font-size: 12px;
+    min-width: 76px;
+    border-radius: 3px;
+    box-shadow: 10px 10px 6px -8px #00000080;
+}
+.tooltip:after {
+    border-width: 8px;
+}
+
+/** Explorer **/
+.file:hover > div,
+.folder:hover > div {
+    border-color: #78D0FF;
+    background-color: #F0F6FF;
+}
+.file > input:checked + div,
+.folder > input:checked + div{
+    border-color: #30A0F0;
+    background-color: #E0F0FF;
+    box-shadow: 8px 8px 8px -8px #00000060;
+}
