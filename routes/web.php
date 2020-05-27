@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::domain('lab.' . getenv('APP_DOMAIN'))->group(function(){
+    // For lab application
+    Route::get('/{any}', 'FrontendController@lab')->where('any', '^(?!api).*$');
 });
+// For public application
+Route::any('/{any}', 'FrontendController@app')->where('any', '^(?!api).*$');

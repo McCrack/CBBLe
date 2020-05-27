@@ -1,0 +1,296 @@
+/*~~~ FONTS ~~~*/
+@font-face {
+    font-family: Roboto;
+    src: local(Roboto Light), local(Roboto-Thin),
+    url(/fonts/Roboto/Roboto-Thin.eot);
+    src: url(/fonts/Roboto/Roboto-Thin.eot?#iefix)
+    format("embedded-opentype"),
+    url(/fonts/Roboto/Roboto-Thin.woff2) format("woff2"),
+    url(/fonts/Roboto/Roboto-Thin.woff) format("woff"),
+    url(/fonts/Roboto/Roboto-Thin.ttf) format("truetype");
+    font-weight: 200;
+    font-display: swap;
+}
+@font-face {
+    font-family: Roboto;
+    src: local(Roboto Light), local(Roboto-Light),
+    url(/fonts/Roboto/Roboto-Light.eot);
+    src: url(/fonts/Roboto/Roboto-Light.eot?#iefix)
+    format("embedded-opentype"),
+    url(/fonts/Roboto/Roboto-Light.woff2) format("woff2"),
+    url(/fonts/Roboto/Roboto-Light.woff) format("woff"),
+    url(/fonts/Roboto/Roboto-Light.ttf) format("truetype");
+    font-weight: 300;
+    font-display: swap;
+}
+@font-face {
+    font-family: Roboto;
+    src: local(Roboto Regular), local(Roboto-Regular),
+    url(/fonts/Roboto/Roboto-Regular.eot);
+    src: url(/fonts/Roboto/Roboto-Regular.eot?#iefix)
+    format("embedded-opentype"),
+    url(/fonts/Roboto/Roboto-Regular.woff2) format("woff2"),
+    url(/fonts/Roboto/Roboto-Regular.woff) format("woff"),
+    url(/fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: Roboto;
+    src: local("Roboto Medium"), local("Roboto-Medium"),
+    url(/fonts/Roboto/Roboto-Medium.eot);
+    src: url(/fonts/Roboto/Roboto-Medium.eot?#iefix)
+    format("embedded-opentype"),
+    url(/fonts/Roboto/Roboto-Medium.woff2) format("woff2"),
+    url(/fonts/Roboto/Roboto-Medium.woff) format("woff"),
+    url(/fonts/Roboto/Roboto-Medium.ttf) format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: Roboto;
+    src: local("Roboto Bold"), local("Roboto-Bold"),
+    url(/fonts/Roboto/Roboto-Bold.eot);
+    src: url(/fonts/Roboto/Roboto-Bold.eot?#iefix)
+    format("embedded-opentype"),
+    url(/fonts/Roboto/Roboto-Bold.woff2) format("woff2"),
+    url(/fonts/Roboto/Roboto-Bold.woff) format("woff"),
+    url(/fonts/Roboto/Roboto-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+/*~~~ ~~~~~ ~~~*/
+
+body {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Roboto;
+}
+
+:root {
+    --dark: #222;
+    --light: #DDD;
+
+    --primary: #08D;
+    --success: #0A9;
+    --warning: orange;
+    --danger: crimson;
+
+    --bar: #2D3E4F;
+    --bar-soft: #35495D;
+    --bar-hard: #1D2E3C;
+
+    --tooltip-bg: #0A9;
+    --tooltip-txt: white;
+}
+
+.light-txt {
+    color: var(--light);
+}
+.dark-txt {
+    color: var(--dark);
+}
+.primary-txt {
+    color: var(--primary);
+}
+.success-txt {
+    color: var(--success);
+}
+.warning-txt {
+    color: var(--warning);
+}
+.danger-txt {
+    color: var(--danger);
+}
+
+.primary-bg {
+    background-color: var(--primary);
+}
+.success-bg {
+    background-color: var(--success);
+}
+.warning-bg {
+    background-color: var(--warning);
+}
+.danger-bg {
+    background-color: var(--danger);
+}
+
+.light-border {
+    border-color: var(--light);
+}
+.dark-border {
+    border-color: var(--dark);
+}
+.primary-border {
+    border-color: var(--primary);
+}
+.success-border {
+    border-color: var(--success);
+}
+.warning-border {
+    border-color: var(--warning);
+}
+.danger-border {
+    border-color: var(--danger);
+}
+
+.bar-bg {
+    background-color: var(--bar-hard);
+}
+.topbar-bg {
+    background-color: var(--bar);
+}
+.sidebar-bg {
+    background-color: var(--bar-soft);
+}
+
+.light-bar {
+    background-image: linear-gradient(to top, #EEE, #FFF);
+}
+.dark-bar {
+    background-image: linear-gradient(to top, #111, #333);
+}
+
+.substrate {
+    background-color: #000000DD;
+}
+
+.shadow {
+    box-shadow: 5px 5px 5px -4px #00000055;
+}
+
+/** Hover effects **/
+.hover-primary-bg:hover {
+    color: white;
+    background-color: var(--primary);
+}
+.hover-success-bg:hover {
+    color: white;
+    background-color: var(--success);
+}
+.hover-warning-bg:hover {
+    color: white;
+    background-color: var(--warning);
+}
+.hover-danger-bg:hover {
+    color: white;
+    background-color: var(--danger);
+}
+.hover-dark-bg:hover {
+    color: white;
+    background-color: var(--dark);
+}
+
+/** Tooltips **/
+.tooltip {
+    padding: 10px;
+    font-size: 13px;
+    max-width: 160px;
+    border-radius: 3px;
+    text-transform: capitalize;
+    color: var(--tooltip-txt, #EEE);
+    background-color: var(--tooltip-bg, #222);
+    box-shadow: 8px 8px 6px -6px #00000080;
+}
+
+/** Form elements **/
+/* Radio buttons */
+input[type='radio'] + span {
+    position: relative;
+    display: inline-block;
+    padding: 5px 5px 5px 20px;
+}
+input[type='radio'] + span::before,
+input[type='radio'] + span::after {
+    content: "";
+    top: 50%;
+    position: absolute;
+    transition: all .3s;
+    transform: translateY(-50%);
+}
+input[type='radio'] + span::before{
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #AAA;
+    box-sizing: border-box;
+    background-color: white;
+    transition: all .1s;
+}
+input[type='radio']:not(:checked) + span::before {
+    box-shadow: inset 0 0 6px -2px #00000070;
+}
+input[type='radio']:checked + span::before {
+    border: 2px solid var(--primary);
+    box-shadow: 1px 1px 3px 0 #00000050;
+}
+input[type='radio']:not(:checked) + span::after {
+    width: 0;
+    height: 0;
+    left: 8px;
+}
+input[type='radio']:checked + span::after {
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+/* Checkboxes */
+input[type='checkbox'] + span {
+    padding-left: 28px;
+    position: relative;
+    display: inline-block;
+}
+input[type='checkbox'] + span::before,
+input[type='checkbox'] + span::after {
+    content: "";
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+}
+input[type='checkbox'] + span::before {
+    left: 0;
+    width: 24px;
+    height: 6px;
+    border-radius: 3px / 3px;
+    background-color: #CCCCCC;
+    box-shadow: inset 0 0 4px 0 #00000050;
+}
+input[type='checkbox'] + span::after {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: #EEE;
+    box-shadow: 1px 1px 4px -1px #00000050;
+    transition: all .3s;
+}
+input[type='checkbox']:not(:checked) + span::after {
+    left: 0;
+}
+input[type='checkbox']:checked + span::after {
+    left: 8px;
+    border: 8px solid var(--success);
+}
+
+/*** POP-UPs ***/
+.alert {
+    min-height: 150px;
+    box-shadow: 10px 10px 8px -6px #00000060;
+}
+
+
+/*** TRANSITIONS ***/
+.fade_5-enter-active, .fade_5-leave-active {
+    transition: opacity .5s;
+}
+.fade_3-enter-active, .fade_3-leave-active {
+    transition: opacity .3s;
+}
+.fade_3-enter, .fade_3-leave-to,
+.fade_5-enter, .fade_5-leave-to {
+    opacity: 0;
+}

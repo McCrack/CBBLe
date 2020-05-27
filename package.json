@@ -1,21 +1,15 @@
 {
+    "name": "laravel",
+    "version": "0.2.0",
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-    },
-    "devDependencies": {
-        "axios": "^0.19",
-        "cross-env": "^7.0",
-        "laravel-mix": "^5.0.1",
-        "lodash": "^4.17.13",
-        "resolve-url-loader": "^3.1.0",
-        "sass": "^1.15.2",
-        "sass-loader": "^8.0.0"
+        "serve": "cd resources/frontend/app && npm run serve",
+        "build": "cd resources/frontend/app && npm run build",
+        "lint": "cd resources/frontend/app && npm run lint",
+        "test": "cd resources/frontend/app && npm run test:unit",
+        "serve:lab": "cd resources/frontend/admin && npm run serve",
+        "build:lab": "cd resources/frontend/admin && npm run build",
+        "lint:lab": "cd resources/frontend/admin && npm run lint",
+        "test:lab": "cd resources/frontend/admin && npm run test:unit"
     }
 }
