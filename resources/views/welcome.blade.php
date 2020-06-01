@@ -1,95 +1,36 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!doctype html>
+<html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ config('app.name') }}</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link href="/css/c-bble.css" rel="stylesheet" type="text/css">
+        <link href="/css/themes/layout.css" rel="stylesheet" type="text/css">
+        <link href="/css/themes/light.css" rel="stylesheet" type="text/css">
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+    <body class="vh-100 text-tiny black-bg light-txt">
+        <div class="flex flex-items-center justify-center relative vh-100">
             @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                <div class="absolute top right m-20 links font-12 text-bold uppercase">
+                    @if (Auth::check())
+                        
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                        <a class="px-10px" href="{{ url('/login') }}">Login</a>
+                        <a class="px-10px" href="{{ url('/register') }}">Register</a>
+                    @endif
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    C-BBLe
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://forge.laravel.com">Forge</a>
+            <div class="font-30 align-center text-tiny">
+                <div class="font-large mb-30">C-BBLe</div>
+                <div class="subtitle links font-15">
+                    <a href="/Sitemap" class="mx-5">Карта сайта</a>
+                    <a href="/" class="mx-5">Менеджер витрины</a>
+                    <a href="/" class="mx-5">Сообщество</a>
+                    <a href="/" class="mx-5">Аналитика</a>
                 </div>
             </div>
         </div>

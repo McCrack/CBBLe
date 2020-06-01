@@ -5,7 +5,7 @@
     "scripts": {
         "serve": "cd resources/views/lab && npm run serve",
         "build": "cd resources/views/lab && npm run build",
-        "lint":  "cd resources/views/lab && npm run lint",
-        "test":  "cd resources/views/lab && npm run test:unit"
+        "lint": "cd resources/views/lab && npm run lint",
+        "test": "cd resources/views/lab && npm run test:unit"
     }
 }
