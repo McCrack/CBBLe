@@ -2,60 +2,40 @@
 @font-face {
     font-family: Roboto;
     src: local(Roboto Light), local(Roboto-Thin),
-    url(/fonts/Roboto/Roboto-Thin.eot);
-    src: url(/fonts/Roboto/Roboto-Thin.eot?#iefix)
-    format("embedded-opentype"),
     url(/fonts/Roboto/Roboto-Thin.woff2) format("woff2"),
-    url(/fonts/Roboto/Roboto-Thin.woff) format("woff"),
-    url(/fonts/Roboto/Roboto-Thin.ttf) format("truetype");
+    url(/fonts/Roboto/Roboto-Thin.woff) format("woff");
     font-weight: 200;
     font-display: swap;
 }
 @font-face {
     font-family: Roboto;
     src: local(Roboto Light), local(Roboto-Light),
-    url(/fonts/Roboto/Roboto-Light.eot);
-    src: url(/fonts/Roboto/Roboto-Light.eot?#iefix)
-    format("embedded-opentype"),
     url(/fonts/Roboto/Roboto-Light.woff2) format("woff2"),
-    url(/fonts/Roboto/Roboto-Light.woff) format("woff"),
-    url(/fonts/Roboto/Roboto-Light.ttf) format("truetype");
+    url(/fonts/Roboto/Roboto-Light.woff) format("woff");
     font-weight: 300;
     font-display: swap;
 }
 @font-face {
     font-family: Roboto;
     src: local(Roboto Regular), local(Roboto-Regular),
-    url(/fonts/Roboto/Roboto-Regular.eot);
-    src: url(/fonts/Roboto/Roboto-Regular.eot?#iefix)
-    format("embedded-opentype"),
     url(/fonts/Roboto/Roboto-Regular.woff2) format("woff2"),
-    url(/fonts/Roboto/Roboto-Regular.woff) format("woff"),
-    url(/fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+    url(/fonts/Roboto/Roboto-Regular.woff) format("woff");
     font-weight: 400;
     font-display: swap;
 }
 @font-face {
     font-family: Roboto;
     src: local("Roboto Medium"), local("Roboto-Medium"),
-    url(/fonts/Roboto/Roboto-Medium.eot);
-    src: url(/fonts/Roboto/Roboto-Medium.eot?#iefix)
-    format("embedded-opentype"),
     url(/fonts/Roboto/Roboto-Medium.woff2) format("woff2"),
-    url(/fonts/Roboto/Roboto-Medium.woff) format("woff"),
-    url(/fonts/Roboto/Roboto-Medium.ttf) format("truetype");
+    url(/fonts/Roboto/Roboto-Medium.woff) format("woff");
     font-weight: 500;
     font-display: swap;
 }
 @font-face {
     font-family: Roboto;
     src: local("Roboto Bold"), local("Roboto-Bold"),
-    url(/fonts/Roboto/Roboto-Bold.eot);
-    src: url(/fonts/Roboto/Roboto-Bold.eot?#iefix)
-    format("embedded-opentype"),
     url(/fonts/Roboto/Roboto-Bold.woff2) format("woff2"),
-    url(/fonts/Roboto/Roboto-Bold.woff) format("woff"),
-    url(/fonts/Roboto/Roboto-Bold.ttf) format("truetype");
+    url(/fonts/Roboto/Roboto-Bold.woff) format("woff");
     font-weight: 700;
     font-display: swap;
 }
@@ -73,7 +53,7 @@ body {
 
     --primary: #08D;
     --success: #0A9;
-    --warning: orange;
+    --warning: #FFFCC8;
     --danger: crimson;
 
     --bar: #2D3E4F;
@@ -182,6 +162,29 @@ body {
     background-color: var(--dark);
 }
 
+.hover-white-txt:hover {
+    color: white;
+}
+.hover-black-txt:hover {
+    color: black;
+}
+.hover-primary-txt:hover {
+    color: var(--primary);
+}
+.hover-success-txt:hover {
+    color: var(--success);
+}
+.hover-warning-txt:hover {
+    color: var(--warning);
+}
+.hover-danger-txt:hover {
+    color: var(--danger);
+}
+
+.hover-underline:hover {
+    text-decoration: underline;
+}
+
 /** Tooltips **/
 .tooltip {
     padding: 10px;
@@ -195,6 +198,9 @@ body {
 }
 
 /** Form elements **/
+fieldset {
+    border-width: 0;
+}
 /* Radio buttons */
 input[type='radio'] + span {
     position: relative;
@@ -274,6 +280,10 @@ input[type='checkbox']:not(:checked) + span::after {
 input[type='checkbox']:checked + span::after {
     left: 8px;
     border: 8px solid var(--success);
+}
+
+*[disabled] {
+    pointer-events: none;
 }
 
 /*** POP-UPs ***/

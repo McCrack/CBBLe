@@ -17,11 +17,6 @@
                 <i v-else-if="type === 'password'" class="material-icons">visibility_off</i>
             </span>
         </div>
-        <div
-                v-if="errorMessage"
-                class="error-message absolute toBottom danger-bg danger-border white-txt rounded-3 font-13">
-            {{errorMessage}}
-        </div>
     </fieldset>
 </template>
 
@@ -32,7 +27,6 @@
             'value',
             'label',
             'isCorrect',
-            'errorMessage'
         ],
         data() {
             return {
@@ -85,18 +79,5 @@
         text-align: center;
         display: inline-block;
         vertical-align: middle;
-    }
-    .error-message {
-        padding: 8px;
-        margin-top: -10px;
-        box-shadow: 10px 10px 6px -6px #00000060;
-    }
-    .error-message::before {
-        content: "";
-        left: 8%;
-        bottom: 100%;
-        position: absolute;
-        border: 8px solid transparent;
-        border-bottom-color: inherit;
     }
 </style>

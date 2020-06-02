@@ -1,32 +1,3 @@
-/*** Overwrite ***/
-body,
-figure,
-fieldset,
-p,
-h1,
-h2,
-h3{
-    margin: 0;
-}
-a {
-    color: inherit;
-    text-decoration: none;
-}
-img {
-    max-width: 100%;
-}
-hr {
-    margin: 0;
-    border-width: 0;
-}
-fieldset {
-    border: none;
-}
-input:focus,
-select:focus,
-textarea:focus{
-    outline: none;
-}
 
 /*** Container ***/
 .container {
@@ -589,31 +560,39 @@ textarea:focus{
 .font-13 {
     font-size: 13px;
 }
-.font-14 {
+.font-14,
+.material-icons.font-14 {
     font-size: 14px;
 }
 .font-15 {
     font-size: 15px;
 }
-.font-16 {
+.font-16,
+.material-icons.font-16 {
     font-size: 16px;
 }
-.font-18 {
+.font-18,
+.material-icons.font-18 {
     font-size: 18px;
 }
-.font-20 {
+.font-20,
+.material-icons.font-20 {
     font-size: 20px;
 }
-.font-24 {
+.font-24,
+.material-icons.font-24 {
     font-size: 24px;
 }
-.font-30 {
+.font-30,
+.material-icons.font-30 {
     font-size: 30px;
 }
-.font-36 {
+.font-36,
+.material-icons.font-36 {
     font-size: 36px;
 }
-.font-42 {
+.font-42,
+.material-icons.font-42 {
     font-size: 42px;
 }
 
@@ -1271,7 +1250,7 @@ textarea:focus{
 .silver-txt {
     color: silver;
 }
-.greyr-txt {
+.grey-txt {
     color: grey;
 }
 .gold-txt {

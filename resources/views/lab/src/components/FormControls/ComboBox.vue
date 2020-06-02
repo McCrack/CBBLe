@@ -6,38 +6,31 @@
 </combo-box>
 -->
 <template>
-    <fieldset class="form-control inline-block p-0 relative" v-bind:class="{'z-index-100': isFocus}">
-        <legend>{{label}}</legend>
-        <div class="border light-border white-bg-1 rounded-3">
-            <input v-bind="$attrs"
-                   v-bind:value="val"
-                   v-on:focus="focus(true)"
-                   v-on:blur="focus(false)"
-                   v-on:input="$emit('input', $event.target.value)">
-            <div v-if="isFocus">
-                <label v-for="([option, value], index) of values" v-bind:key="index" >
-                    <input
-                        type="radio"
-                        v-model="selected"
-                        v-bind:value="value"
-                        hidden>
-                    {{option}}
-                </label>
-            </div>
-        </div>
-        <span
-            v-if="errorMessage"
-            class="error-message absolute toBottom danger-bg danger-border white-txt rounded-3 font-13">
-            {{errorMessage}}
-        </span>
-    </fieldset>
+  <fieldset class="form-control inline-block p-0 relative" v-bind:class="{'z-index-100': isFocus}">
+    <legend>{{label}}</legend>
+    <div class="border light-border white-bg-1 rounded-3">
+      <input v-bind="$attrs"
+             v-bind:value="val"
+             v-on:focus="focus(true)"
+             v-on:blur="focus(false)"
+             v-on:input="$emit('input', $event.target.value)">
+      <div v-if="isFocus">
+        <label v-for="([option, value], index) of values" v-bind:key="index" >
+          <input type="radio"
+                 v-model="selected"
+                 v-bind:value="value"
+                 hidden>
+          {{option}}
+        </label>
+      </div>
+    </div>
+  </fieldset>
 </template>
 
 <script>
     export default {
         name: "ComboBox",
         props: {
-            errorMessage: String,
             value: {
                 type: String,
                 default() {
@@ -138,19 +131,5 @@ input + div > label {
 input + div > label:hover {
     color: white;
     background-color: var(--primary);
-}
-
-.error-message {
-    padding: 8px;
-    margin-top: -10px;
-    box-shadow: 10px 10px 6px -6px #00000060;
-}
-.error-message::before {
-    content: "";
-    left: 8%;
-    bottom: 100%;
-    position: absolute;
-    border: 8px solid transparent;
-    border-bottom-color: inherit;
 }
 </style>
