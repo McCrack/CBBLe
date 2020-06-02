@@ -11,13 +11,12 @@ Route::middleware('auth:sanctum')
 	->get('/routes', function(){
 	return response()->json([
 		'modules' => [
-			'Users' =>"/users",
-			'Explorer' =>"/explorer",
-			'Materials' =>"/materials",
-			'Mediasets' =>"/mediasets",
-			'Microdata' =>"/microdata",
-			'Dictionaries' =>"/dictionaries",
-			'Settings' => "/settings"
+			'Dictionaries' => "translate",
+			'Explorer' => "folder",
+			'Materials' => "insert_drive_file",
+			'Mediasets' => "collections",
+			'Microdata' => "code",
+			'Users' => "people_alt",
 		],
 		'extensions' => [
 			'Sitemap' => '/sitemap',

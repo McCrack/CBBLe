@@ -1,11 +1,6 @@
 <template>
   <div id="app">
     <component v-bind:is="mount"></component>
-    <div class="fixed bottom left p-20 white-txt">
-      <div v-for="(path, name, index) of MODULES" v-bind:key="index" class="m-10">
-        {{ name }} = {{ path }}
-      </div>
-    </div>
   </div>
 </template>
 <script>
@@ -24,7 +19,7 @@
       CBBLe: () => import("./views/CBBLe")
     },
     computed: {
-      ...mapGetters(['MODULES', 'EXTENSIONS', 'IS_AUTH'])
+      ...mapGetters(['IS_AUTH'])
     },
     watch: {
       IS_AUTH() {
