@@ -704,11 +704,13 @@
 .h-line {
     margin: 0;
     height: 1px;
+    border-width: 0;
 }
 .v-line {
     margin: 0;
     width: 1px;
     height: 100%;
+    border-width: 0;
 }
 
 /*** Sizes ***/
