@@ -8,14 +8,14 @@
     <div>
         <label
                 v-bind:class="labelClass || ''"
-                v-for="([label, value], index) of items"
+                v-for="(value, index) of items"
                 v-bind:key="index">
             <input
                     type="checkbox"
                     v-model="model"
                     v-bind:value="value"
                     hidden>
-            <span>{{label}}</span>
+            <span class="capitalize">{{value}}</span>
         </label>
     </div>
 </template>
@@ -25,6 +25,12 @@
         name: "CheckSet",
         props: {
             labelClass: String,
+            checkeds: {
+              type: Array,
+              default () {
+                return []
+              }
+            },
             items: {
                 type: Array,
                 default () {
@@ -37,9 +43,12 @@
                 model: []
             }
         },
+        created() {
+          this.model = this.checkeds;
+        },
         watch: {
             model () {
-                console.log(this.model)
+                this.$emit('change', this.model);
             }
         }
     }

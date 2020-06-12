@@ -6,7 +6,7 @@
 -->
 <template>
     <fieldset class="form-control inline-block p-0 relative">
-        <legend>{{label}}</legend>
+        <legend class="font-light">{{label}}</legend>
         <div class="border light-border white-bg-1 rounded-3">
             <input v-bind:type="type"
                    v-bind="$attrs"

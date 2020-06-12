@@ -1,6 +1,6 @@
 <!-- Base usage -->
 <!--
-<options-table
+<specifics-table
     keyName="KEY"
     valueName="VALUE"
     captionClass="success-bg white-txt"
@@ -57,14 +57,13 @@
             valueName: String,
             captionClass: String,
             rows: {
-                type: Array,
                 default: function () {
                     return []
                 }
             }
         },
         created () {
-            this.model = this.rows
+            this.model = Object.entries(this.rows);
         },
         methods: {
             changeData (isChanged = true) {
@@ -88,9 +87,9 @@
                 if (this.isChanged) {
                     clearTimeout(this.timeout)
                     this.timeout = setTimeout(() => {
-                        console.log("Data changed")
+                        this.$emit('change', Object.fromEntries(this.model));
                         this.changeData(false);
-                    }, 1000)
+                    }, 1500)
                 }
             }
         }

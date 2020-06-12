@@ -5,8 +5,8 @@
 -->
 <template>
     <fieldset class="form-control inline-block p-0">
-        <legend><slot/></legend>
-        <div class="border light-border white-bg-1 rounded-3 relative font-none">
+        <legend class="font-light"><slot/></legend>
+        <div class="border light-border white-bg-1 rounded-3 relative z-index-1">
             <select v-bind="$attrs"
                     v-bind:value="value"
                     v-on:input="$emit('input', $event.target.value)">

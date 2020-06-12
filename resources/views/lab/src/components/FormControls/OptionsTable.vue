@@ -79,7 +79,7 @@
                 if (this.isChanged) {
                     clearTimeout(this.timeout)
                     this.timeout = setTimeout(() => {
-                        console.log("Data changed")
+                        this.$emit('change', this.model);
                         this.changeData(false);
                     }, 1000)
                 }
