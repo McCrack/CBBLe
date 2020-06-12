@@ -51,7 +51,7 @@ export default {
   margin: 0 0.6ch;
   width: 0;
   color: silver;
-  font: 30px monospace;
+  font: 28px monospace;
   border-right: 2px solid gray;
   animation: blinker 1s step-start infinite, typed 3s steps(23) 1.8s 1 forwards;
 }
