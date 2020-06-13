@@ -28,7 +28,13 @@ Vue.use({
           this.alert = {
             show: true,
             current: name,
-            message: message,
+            message: (message => {
+              if (message === typeof 'string') {
+                return message;
+              } else if(Array.isArray(message)) {
+                return message.join('\n');
+              }
+            })(message),
             callback: callback || null,
             value: value || null,
           };

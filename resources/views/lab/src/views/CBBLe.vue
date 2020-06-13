@@ -66,8 +66,8 @@
           </div>
         </div>
         <!--<div class="w-16 text-center light-txt cursor-pointer bar-bg border-left-light">❯</div>-->
-        <div class="w-64 h-64 text-center"
-              v-bind:class="{'danger-bg': IS_UNSAVED}">
+        <div class="save-indicator w-64 h-64 text-center"
+             v-bind:class="{'danger-bg': (IS_UNSAVED || ERRORS_LOG.length)}">
           <i class="icon tab-icon material-icons no-events light-txt">get_app</i>
         </div>
       </nav><!--/TopBar-->
@@ -141,10 +141,15 @@
       this.aside = this.$refs.aside
     },
     computed: {
-      ...mapGetters(['MODULES', 'EXTENSIONS', 'IS_UNSAVED']),
+      ...mapGetters(['MODULES', 'EXTENSIONS', 'IS_UNSAVED', 'ERRORS_LOG']),
+    },
+    watch: {
+      ERRORS_LOG() {
+        this.showPopUp('error-pop-up', this.ERRORS_LOG);
+      },
     },
     methods: {
-      ...mapActions(['LOGOUT']),
+      ...mapActions(['LOGOUT', 'CLEAR_ERROR_LOG']),
       openTab (tab) {
         this.currentTab = tab;
       },
@@ -203,5 +208,18 @@
   #environment {
     overflow: auto;
     height: calc(100% - 64px);
+  }
+  .save-indicator:not(.danger-bg) {
+    animation-duration: 4s;
+    animation-name: is-save;
+  }
+  @keyframes is-save {
+    0% ,
+    80% {
+      background-color: var(--success);
+    }
+    100% {
+      background-color: transparent;
+    }
   }
 </style>

@@ -300,7 +300,7 @@ input[type='checkbox']:checked + span::after {
 
 /*** TRANSITIONS ***/
 .fade_5-enter-active, .fade_5-leave-active {
-    transition: opacity .5s;
+    transition: opacity .4s;
 }
 .fade_3-enter-active, .fade_3-leave-active {
     transition: opacity .3s;

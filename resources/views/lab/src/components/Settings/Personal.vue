@@ -65,14 +65,14 @@
           },
         },
         methods: {
-          ...mapActions(['FETCH_PERSONAL_SETTINGS']),
+          ...mapActions(['FETCH_PERSONAL_SETTINGS', 'ERROR_LOG']),
           patch(field, value) {
             this.$store.dispatch('PATCH_FIELD', {
               settings: { personal: { [field]: value } },
             }).then((response) => {
               console.log(response);
-            }).catch(error => {
-              console.log(error.response.status, error.response.data.message);
+            }).catch(errors => {
+              this.$store.dispatch('ERRORS_TO_LOG', errors);
             });
           },
         },

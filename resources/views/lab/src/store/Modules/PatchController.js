@@ -31,7 +31,18 @@ export default {
             state.is_unsaved = false;
             resolve(response.data);
           } catch(error) {
-            reject(error);
+            let errors = [];
+            switch (error.response.status) {
+              case 422:
+                errors.push(error.response.data.message);
+                break;
+              case 500:
+              default:
+                errors.push(error.response.data.message);
+                break;
+            }
+            state.is_unsaved = false;
+            reject(errors);
           }
         }, 5000);
       });
