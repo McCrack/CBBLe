@@ -37,7 +37,7 @@ export default {
     },
     FETCH_EXTENSIONS({ commit }) {
       return http
-        .get("/routes")
+        .get("/lab/routes")
         .then((response) => {
           commit("allowAccess");
           commit("updateModules", response.data.modules);
@@ -49,14 +49,14 @@ export default {
     },
     // eslint-disable-next-line no-empty-pattern
     LOGIN({}, fields) {
-      return http.post("/login", fields);
+      return http.post("/lab/login", fields);
     },
     // eslint-disable-next-line no-empty-pattern
     REGISTER({}, fields) {
-      return http.post("/register", fields);
+      return http.post("/lab/register", fields);
     },
     LOGOUT() {
-      http.post("/logout").then(() => {
+      http.post("/lab/logout").then(() => {
         window.location.reload();
       });
     },

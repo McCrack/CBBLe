@@ -44,6 +44,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
+        $this->mapLabRoutes();
+
         $this->mapWebRoutes();
 
         //
@@ -77,4 +79,21 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
     }
+
+	/**
+	 * Define the "lab" routes for the application.
+	 *
+	 * These routes are typically stateless.
+	 *
+	 * @return void
+	 */
+	protected function mapLabRoutes()
+	{
+		//domain('lab.' . env('APP_DOMAIN'))
+		//->middleware('api')
+		Route::prefix('lab')
+			->middleware('web')
+			->namespace($this->namespace)
+			->group(base_path('routes/lab.php'));
+	}
 }

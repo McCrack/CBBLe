@@ -176,4 +176,8 @@
   .tab-icon {
     line-height: 64px;
   }
+  aside {
+    height: 100vh;
+    overflow: hidden;
+  }
 </style>

@@ -259,15 +259,15 @@ input[type='checkbox'] + span::after {
 }
 input[type='checkbox'] + span::before {
     left: 0;
-    width: 24px;
-    height: 6px;
+    width: 18px;
+    height: 3px;
     border-radius: 3px / 3px;
     background-color: #CCCCCC;
     box-shadow: inset 0 0 4px 0 #00000050;
 }
 input[type='checkbox'] + span::after {
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     box-sizing: border-box;
     background-color: #EEE;
@@ -278,11 +278,13 @@ input[type='checkbox']:not(:checked) + span::after {
     left: 0;
 }
 input[type='checkbox']:checked + span::after {
-    left: 8px;
-    border: 8px solid var(--success);
+    left: 6px;
+    border: 6px solid var(--success);
 }
 
+.disabled,
 *[disabled] {
+    opacity: 0.5;
     pointer-events: none;
 }
 
