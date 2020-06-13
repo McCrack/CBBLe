@@ -2,64 +2,52 @@ import http from "@/http";
 
 export default {
   state: {
-    roles: [],
-    languages: [],
-    themes: [],
-    frontend: {},
-    global: {},
-    personal: {},
+    frontend_settings: {},
+    global_settings: {},
+    personal_settings: {},
   },
   getters: {
-    ROLES(state) {
-      return state.roles;
+    PERSONAL_SETTINGS(state) {
+      return state.personal_settings;
     },
-    LANGUAGES(state) {
-      return state.languages;
+    FRONTEND_SETTINGS(state) {
+      return state.frontend_settings;
     },
-    THEMES(state) {
-      return state.themes;
-    },
-    PERSONAL(state) {
-      return state.personal;
-    },
-    FRONTEND(state) {
-      return state.frontend;
-    },
-    GLOBAL(state) {
-      return state.global;
+    GLOBAL_SETTINGS(state) {
+      return state.global_settings;
     },
   },
   mutations: {
-    updateRoles(state, roles) {
-      state.roles = roles;
+    updatePersonal(state, data) {
+      state.personal_settings = data;
     },
-    updateLanguages(state, languages) {
-      state.languages = languages;
+    updateGlobal(state, data) {
+      state.global_settings = data;
     },
-    updateThemes(state, themes) {
-      state.themes = themes;
-    },
-    updatePersonal(state, personal) {
-      state.personal = personal;
-    },
-    updateGlobal(state, global) {
-      state.global = global;
-    },
-    updateFrontend(state, frontend) {
-      state.frontend = frontend;
+    updateFrontend(state, data) {
+      state.frontend_settings = data;
     },
   },
   actions: {
-    FETCH_SETTINGS({ commit }) {
+    FETCH_PERSONAL_SETTINGS({ commit }) {
       return http
-        .get("/lab/settings")
+        .get("/lab/settings/personal")
         .then((response) => {
-          commit("updateRoles", response.data.roles);
-          commit("updateLanguages", response.data.languages);
-          commit("updateThemes", response.data.themes);
-          commit("updatePersonal", response.data.personal);
-          commit("updateGlobal", response.data.global);
-          commit("updateFrontend", response.data.frontend);
+          commit("updatePersonal", response.data);
+        });
+    },
+    FETCH_GLOBAL_SETTINGS({ commit }) {
+      return http
+        .get("/lab/settings/global")
+        .then((response) => {
+          commit("updateGlobal", response.data);
+        });
+    },
+    FETCH_FRONTEND_SETTINGS({ commit }) {
+      return http
+        .get("/lab/settings/front-end")
+        .then((response) => {
+          commit("updateFrontend", response.data);
         });
     },
   },

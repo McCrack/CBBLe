@@ -2,9 +2,16 @@ import "normalize.css";
 import "material-design-icons-iconfont";
 
 import Vue from "vue";
-import App from "./App.vue";
+
 import router from "./router";
 import store from "./store";
+
+import VueLodash from 'vue-lodash'
+import lodash from 'lodash'
+Vue.use(VueLodash, { name: 'custom' , lodash: lodash })
+
+import App from "./App.vue";
+
 //import http from "./http";
 
 import "./components/Tools";

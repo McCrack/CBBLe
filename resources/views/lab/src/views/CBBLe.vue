@@ -1,8 +1,9 @@
 <template>
   <div id="wrapper"
-       class="grid"
-       v-bind:style="{gridTemplateColumns: sidebar.size + 'px auto' }">
-    <aside ref="aside" class="flex-between-stretch full-height sidebar-bg">
+       class="flex-between-stretch">
+    <aside ref="aside"
+           v-bind:style="{minWidth: sidebar.size + 'px' }"
+           class="flex-between-stretch full-height sidebar-bg">
       <!-- BAR -->
       <div class="min-w-64 bar-bg font-none p-o flex-between-center flex-column">
         <div v-on:click="openTab('extensions')"
@@ -42,26 +43,35 @@
                            v-bind:options="sidebar"/>
     </aside>
     <!--Work Environment-->
-    <main class="full-height flex-between-stretch flex-column">
+    <main class="full-height"
+          v-bind:style="{width: 'calc(100% - ' + sidebar.size + 'px)' }">
       <!--TopBar-->
-      <div class="min-h-64 topbar-bg">
-        <div>
-          <div v-for="(tab, index) of mounted"
-               v-bind:key="index"
-               v-bind:class="{'bar-bg': (index === currentModuleIndex)}"
-               v-on:click="showModule(index)"
-               v-on:mouseover="showTooltip($event, tab.module)"
-               class="inline-block relative cursor-pointer">
-            <button v-if="index > 0"
-                    v-on:click.stop="closeModule(index)"
-                    class="absolute top-5 right z-index-2 transparent border-none white-txt cursor-pointer">✕</button>
-            <label class="w-64 h-64 inline-block text-center cursor-pointer">
-              <i class="icon tab-icon material-icons no-events light-txt">{{tab.icon}}</i>
-            </label>
+      <nav class="h-64 topbar-bg nowrap flex-between-stretch">
+        <!--<div class="w-16 text-center light-txt cursor-pointer bar-bg border-right-light">❮</div>-->
+        <div class="taskbar overflow-hidden">
+          <div class="h-64">
+            <div v-for="(tab, index) of mounted"
+                 v-bind:key="index"
+                 v-bind:class="{'bar-bg': (index === currentModuleIndex)}"
+                 v-on:click="showModule(index)"
+                 v-on:mouseover="showTooltip($event, tab.module)"
+                 class="inline-block relative cursor-pointer">
+              <button v-if="index > 0"
+                      v-on:click.stop="closeModule(index)"
+                      class="absolute top-5 right z-index-2 transparent border-none white-txt cursor-pointer">✕</button>
+              <label class="w-64 h-64 inline-block text-center cursor-pointer">
+                <i class="icon tab-icon material-icons no-events light-txt">{{tab.icon}}</i>
+              </label>
+            </div>
           </div>
         </div>
-      </div><!--/TopBar-->
-      <div class="full-width flex-basis overflow-auto relative" style="max-height: calc(100vh - 64px)">
+        <!--<div class="w-16 text-center light-txt cursor-pointer bar-bg border-left-light">❯</div>-->
+        <div class="w-64 h-64 text-center"
+              v-bind:class="{'danger-bg': IS_UNSAVED}">
+          <i class="icon tab-icon material-icons no-events light-txt">get_app</i>
+        </div>
+      </nav><!--/TopBar-->
+      <div id="environment" class="full-width flex-basis overflow-auto relative">
         <keep-alive>
           <component
             v-bind:key="mounted[currentModuleIndex].key"
@@ -131,7 +141,7 @@
       this.aside = this.$refs.aside
     },
     computed: {
-      ...mapGetters(['MODULES', 'EXTENSIONS']),
+      ...mapGetters(['MODULES', 'EXTENSIONS', 'IS_UNSAVED']),
     },
     methods: {
       ...mapActions(['LOGOUT']),
@@ -179,5 +189,19 @@
   aside {
     height: 100vh;
     overflow: hidden;
+  }
+  main {
+    flex-grow: 1;
+  }
+  main > nav {
+    line-height: 64px;
+  }
+  .taskbar {
+    flex-grow: 1;
+    max-width: calc(100% - 64px);
+  }
+  #environment {
+    overflow: auto;
+    height: calc(100% - 64px);
   }
 </style>

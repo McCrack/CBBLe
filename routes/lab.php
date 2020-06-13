@@ -22,54 +22,62 @@ Route::middleware('auth:sanctum')->group(function(){
 			],
 		]);
 	});
-	Route::get('/settings', function(){
+	Route::patch('/patch-controller', function(){
+		throw new \Exception("It's not Ok", 500);
+		return "It's Ok";
+	});
+	Route::get('/settings/personal', function(){
 		return response()->json([
-			'roles' => ["admin", "developer", "suspend"],
+			'name' => "Eugene",
+			'email' => "datamorg@gmail.com",
+			'password' => "",
+			'language' => "uk",
+			'theme' => "light",
 			'languages' => ["uk", "en", "ru"],
 			'themes' => ["light"],
-			'frontend' => [
-				'site_name' => "C-BBLe",
-				'email' => "info@c-bble.local",
-				'logo' => "/logo.png",
-				'language' => "en",
-				'location' => "en",
-				'languages' => [
-					'uk' => "ua",
-					'en' => "en",
-					'ru' => "ru",
-				],
-				'phones' => [
-					"(096) 521-6303",
-					"(066) 717-0259",
-				],
-				'currency_rates' => [
-					'UAH' => 1,
-					'USD' => 25,
-					'EUR' => 28,
-				]
+		]);
+	});
+	Route::get('/settings/global', function(){
+		return response()->json([
+			'language' => "uk",
+			'theme' => "light",
+			'languages' => ["uk", "en", "ru"],
+			'themes' => ["light"],
+			'roles' => ["admin", "developer", "suspend"],
+			'access' => [
+				'Explorer' => ["admin", "developer"],
+				'Users' => ["admin", "developer"],
+				'Dictionaries' => ["admin", "developer"],
+				'Materials' => ["admin", "developer"],
+				'Mediasets' => ["admin", "developer"],
+				'Microdata' => ["admin", "developer"],
 			],
-			'global' => [
-				'language' => "uk",
-				'theme' => "light",
-				'access' => [
-					'Explorer' => ["admin", "developer"],
-					'Users' => ["admin", "developer"],
-					'Dictionaries' => ["admin", "developer"],
-					'Materials' => ["admin", "developer"],
-					'Mediasets' => ["admin", "developer"],
-					'Microdata' => ["admin", "developer"],
-				],
-				'privileges' => [
-					'Settings' => ["admin", "developer"],
-					'Explorer' => [],
-				],
+			'privileges' => [
+				'Settings' => ["admin", "developer"],
+				'Explorer' => [],
 			],
-			'personal' => [
-				'name' => "Eugene",
-				'email' => "datamorg@gmail.com",
-				'password' => "",
-				'language' => "uk",
-				'theme' => "light",
+		]);
+	});
+	Route::get('/settings/front-end', function(){
+		return response()->json([
+			'site_name' => "C-BBLe",
+			'email' => "info@c-bble.local",
+			'logo' => "/logo.png",
+			'language' => "en",
+			'location' => "en",
+			'languages' => [
+				'uk' => "ua",
+				'en' => "en",
+				'ru' => "ru",
+			],
+			'phones' => [
+				"(096) 521-6303",
+				"(066) 717-0259",
+			],
+			'currency_rates' => [
+				'UAH' => 1,
+				'USD' => 25,
+				'EUR' => 28,
 			]
 		]);
 	});

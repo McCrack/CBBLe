@@ -69,6 +69,7 @@
         color: inherit;
         border-width: 0;
         box-sizing: border-box;
+      background-color: transparent;
     }
     .material-icons {
         width: 22px;

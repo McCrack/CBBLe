@@ -5,10 +5,12 @@ Vue.use(Vuex)
 
 import Access from "./Modules/Access";
 import Settings from "./Modules/Settings";
+import PatchController from "./Modules/PatchController";
 
 export default new Vuex.Store({
   modules: {
     Access,
-    Settings
+    Settings,
+    PatchController,
   }
 })

@@ -62,6 +62,9 @@ body {
 
     --tooltip-bg: #0A9;
     --tooltip-txt: white;
+
+    --light-border: #35495D;
+    --dark-border: #0D1E2C;
 }
 
 .light-txt {
@@ -97,10 +100,10 @@ body {
 }
 
 .light-border {
-    border-color: var(--light);
+    border-color: var(--bar-soft);
 }
 .dark-border {
-    border-color: var(--dark);
+    border-color: var(--bar-hard);
 }
 .primary-border {
     border-color: var(--primary);
