@@ -22,12 +22,10 @@ Route::middleware('auth:sanctum')->group(function(){
 			],
 		]);
 	});
-	Route::patch('/patch-controller', function(){
-		throw new \Exception("It's not Ok", 500);
-		return "It's Ok";
-	});
+	Route::patch('/patch-controller', 'PatchController');
 	Route::get('/settings/personal', function(){
 		return response()->json([
+			'id' => 1,
 			'name' => "Eugene",
 			'email' => "datamorg@gmail.com",
 			'password' => "",

@@ -52,7 +52,7 @@
               return this.PERSONAL_SETTINGS.theme;
             },
             set(value) {
-              this.patch('theme', value)
+              this.patch('config->theme', value)
             },
           },
           language: {
@@ -60,7 +60,7 @@
               return this.PERSONAL_SETTINGS.language;
             },
             set(value) {
-              this.patch('language', value)
+              this.patch('config->language', value)
             },
           },
         },
@@ -68,7 +68,11 @@
           ...mapActions(['FETCH_PERSONAL_SETTINGS', 'ERROR_LOG']),
           patch(field, value) {
             this.$store.dispatch('PATCH_FIELD', {
-              settings: { personal: { [field]: value } },
+              User: {
+                [this.PERSONAL_SETTINGS.id]: {
+                  [field]: value
+                }
+              },
             }).then((response) => {
               console.log(response);
             }).catch(errors => {

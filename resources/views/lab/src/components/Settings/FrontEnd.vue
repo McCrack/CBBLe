@@ -59,31 +59,41 @@
             get() {
               return this.FRONTEND_SETTINGS.site_name;
             },
-            set() {},
+            set(value) {
+              this.patch('site_name', value)
+            },
           },
           email: {
             get() {
               return this.FRONTEND_SETTINGS.email;
             },
-            set() {},
+            set(value) {
+              this.patch('email', value)
+            },
           },
           logo: {
             get() {
               return this.FRONTEND_SETTINGS.logo;
             },
-            set() {},
+            set(value) {
+              this.patch('logo', value)
+            },
           },
           language: {
             get() {
               return this.FRONTEND_SETTINGS.language;
             },
-            set() {},
+            set(value) {
+              this.patch('language', value)
+            },
           },
           location: {
             get() {
               return this.FRONTEND_SETTINGS.location;
             },
-            set() {},
+            set(value) {
+              this.patch('location', value)
+            },
           },
         },
         methods: {
@@ -97,6 +107,19 @@
           changePhones(phones) {
             this.phones = phones
             console.table(this.phones);
+          },
+          patch(field, value) {
+            this.$store.dispatch('PATCH_FIELD', {
+              Settings: {
+                frontend: {
+                  [field]: value
+                }
+              },
+            }).then((response) => {
+              console.log(response);
+            }).catch(errors => {
+              this.$store.dispatch('ERRORS_TO_LOG', errors);
+            });
           },
         },
         created() {

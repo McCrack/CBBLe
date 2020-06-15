@@ -99,13 +99,17 @@
             get() {
               return this.GLOBAL_SETTINGS.theme;
             },
-            set() {},
+            set(value) {
+              this.patch('theme', value)
+            },
           },
           language: {
             get() {
               return this.GLOBAL_SETTINGS.language;
             },
-            set() {},
+            set(value) {
+              this.patch('language', value)
+            },
           },
 
         },
@@ -116,6 +120,19 @@
           },
           changePrivileges(module, roles) {
             console.table(module, roles)
+          },
+          patch(field, value) {
+            this.$store.dispatch('PATCH_FIELD', {
+              Settings: {
+                lab: {
+                  [field]: value
+                }
+              },
+            }).then((response) => {
+              console.log(response);
+            }).catch(errors => {
+              this.$store.dispatch('ERRORS_TO_LOG', errors);
+            });
           },
         },
         created() {

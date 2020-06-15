@@ -93,7 +93,7 @@ class RouteServiceProvider extends ServiceProvider
 		//->middleware('api')
 		Route::prefix('lab')
 			->middleware('web')
-			->namespace($this->namespace)
+			->namespace('App\Lab')
 			->group(base_path('routes/lab.php'));
 	}
 }
