@@ -60,7 +60,7 @@
               return this.FRONTEND_SETTINGS.site_name;
             },
             set(value) {
-              this.patch('site_name', value)
+              this.patch('site_name', value);
             },
           },
           email: {
@@ -68,7 +68,7 @@
               return this.FRONTEND_SETTINGS.email;
             },
             set(value) {
-              this.patch('email', value)
+              this.patch('email', value);
             },
           },
           logo: {
@@ -76,7 +76,7 @@
               return this.FRONTEND_SETTINGS.logo;
             },
             set(value) {
-              this.patch('logo', value)
+              this.patch('logo', value);
             },
           },
           language: {
@@ -84,7 +84,7 @@
               return this.FRONTEND_SETTINGS.language;
             },
             set(value) {
-              this.patch('language', value)
+              this.patch('language', value);
             },
           },
           location: {
@@ -92,21 +92,23 @@
               return this.FRONTEND_SETTINGS.location;
             },
             set(value) {
-              this.patch('location', value)
+              this.patch('location', value);
             },
           },
         },
         methods: {
           ...mapActions(['FETCH_FRONTEND_SETTINGS']),
           changeRates(rates) {
-            this.rates = rates
+            this.FRONTEND_SETTINGS.currency_rates = rates;
+            this.patch('currency_rates', rates);
           },
           changeLangugeSet(languages) {
-            this.rates = languages
+            this.FRONTEND_SETTINGS.languages = languages
+            this.patch('languages', languages);
           },
           changePhones(phones) {
-            this.phones = phones
-            console.table(this.phones);
+            this.FRONTEND_SETTINGS.phones = phones
+            this.patch('phones', phones);
           },
           patch(field, value) {
             this.$store.dispatch('PATCH_FIELD', {

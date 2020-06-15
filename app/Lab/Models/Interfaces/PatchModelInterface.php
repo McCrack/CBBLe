@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Lab\Models\Interfaces;
-
 
 interface PatchModelInterface
 {

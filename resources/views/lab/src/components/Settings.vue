@@ -1,5 +1,5 @@
 <template>
-    <div class="p-20 white-txt full-height overflow-y-auto">
+    <div class="p-20 white-txt">
       <label class="inline-block mx-5 font-16 font-light cursor-pointer">
         <input type="radio" v-model="tab" value="Personal" hidden>
         <a v-bind:class="{'font-medium underline': (tab === 'Personal')}">Personal</a>

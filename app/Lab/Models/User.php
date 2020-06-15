@@ -3,9 +3,13 @@
 namespace App\Lab\Models;
 
 use App\Lab\Models\Interfaces\PatchModelInterface;
+use App\Lab\Casts\Password;
+use Illuminate\Support\Facades\Validator;
+
 
 class User extends BaseModel implements PatchModelInterface
 {
+
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -32,6 +36,7 @@ class User extends BaseModel implements PatchModelInterface
 	protected $casts = [
 		'email_verified_at' => 'datetime',
 		'config' => 'array',
+		'password' => Password::class,
 	];
 
 	/**
@@ -39,9 +44,18 @@ class User extends BaseModel implements PatchModelInterface
 	 */
 	public function patch(array $data): void
 	{
-		foreach ($data as $key => $val) {
+		$validator = Validator::make($data, [
+			'name' => 'string|max:64',
+			'email' => 'email|string|max:64',
+			'password' => 'min:8|string|confirmed',
+			'role' => 'max:64|string',
+			'config.language' => 'alpha|size:2',
+			'config.theme' => 'string|max:16',
+		]);
+		foreach ($validator->valid() as $key => $val) {
 			$this->{$key} = $val;
 		}
 		$this->save();
+		$validator->validate();
 	}
 }

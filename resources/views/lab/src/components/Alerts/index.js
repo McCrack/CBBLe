@@ -32,7 +32,7 @@ Vue.use({
               if (message === typeof 'string') {
                 return message;
               } else if(Array.isArray(message)) {
-                return message.join('\n');
+                return message;
               }
             })(message),
             callback: callback || null,

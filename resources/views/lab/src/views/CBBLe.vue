@@ -34,7 +34,7 @@
       </div> <!--/BAR -->
       <!-- TABs -->
       <keep-alive>
-        <component class="tab flex-basis"
+        <component class="tab flex-basis full-height overflow-y-auto box"
                    v-on:mount-module="mountModule"
                    v-bind:is="currentTab"></component>
       </keep-alive>
@@ -66,8 +66,8 @@
           </div>
         </div>
         <!--<div class="w-16 text-center light-txt cursor-pointer bar-bg border-left-light">❯</div>-->
-        <div class="save-indicator w-64 h-64 text-center"
-             v-bind:class="{'danger-bg': (IS_UNSAVED || ERRORS_LOG.length)}">
+        <div v-on:click="showPopUp('error-pop-up', ERRORS_LOG)" class="save-indicator w-64 h-64 text-center cursor-pointer"
+             v-bind:class="{'danger-bg': IS_UNSAVED, 'warning-bg': ERRORS_LOG.length}">
           <i class="icon tab-icon material-icons no-events light-txt">get_app</i>
         </div>
       </nav><!--/TopBar-->
@@ -90,7 +90,8 @@
     <transition name="fade_5">
       <component v-if="alert.show"
                  v-bind:value="alert.value"
-                 v-bind:is="alert.current">{{alert.message}}</component>
+                 v-bind:message="alert.message"
+                 v-bind:is="alert.current"/>
     </transition>
   </div>
 </template>
@@ -149,7 +150,7 @@
       },
     },
     methods: {
-      ...mapActions(['LOGOUT', 'CLEAR_ERROR_LOG']),
+      ...mapActions(['LOGOUT', 'CLEAR_ERROR_LOG', 'CLEAR_PATCH_STATE']),
       openTab (tab) {
         this.currentTab = tab;
       },
@@ -209,16 +210,12 @@
     overflow: auto;
     height: calc(100% - 64px);
   }
-  .save-indicator:not(.danger-bg) {
-    animation-duration: 4s;
-    animation-name: is-save;
+  .save-indicator:not(.danger-bg):not(.warning-bg) {
+    background-color: var(--success);
+    animation: is-save 1s 2s forwards;
   }
   @keyframes is-save {
-    0% ,
-    80% {
-      background-color: var(--success);
-    }
-    100% {
+    to {
       background-color: transparent;
     }
   }

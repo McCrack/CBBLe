@@ -32,9 +32,16 @@ export default {
             resolve(response.data);
           } catch(error) {
             let errors = [];
+            state.data = {};
             switch (error.response.status) {
               case 422:
                 errors.push(error.response.data.message);
+                for (let [field, errorRows] of Object.entries(error.response.data.errors)) {
+                  errors.push(`${field}:`);
+                  for (let row of errorRows) {
+                    errors.push(` → ${row}`);
+                  }
+                }
                 break;
               case 500:
               default:
@@ -46,6 +53,9 @@ export default {
           }
         }, 5000);
       });
+    },
+    CLEAR_PATCH_STATE({state}) {
+      state.data = {};
     },
   },
 };

@@ -7,6 +7,7 @@ namespace App\Lab\Models;
 use App\Lab\Models\Interfaces\PatchModelInterface;
 use Exception;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class Settings implements PatchModelInterface
 {
@@ -68,9 +69,38 @@ class Settings implements PatchModelInterface
 		return (BOOL)$saved;
 	}
 
+	/**
+	 * @param array $data
+	 * @throws Exception
+	 */
 	public function patch(array $data): void
 	{
-		$this->container = array_merge($this->container, $data);
+		$validator = Validator::make($data, [
+			'site_name' => 'string|max:64',
+			'email' => 'email|string|max:64',
+			'language' => 'alpha|size:2',
+			'locations' => 'alpha|size:2',
+			'theme' => 'string|max:16',
+			'currency_rates' => 'array',
+			'phones' => 'array',
+			'languages' => 'array',
+			'access' => 'array',
+			'privileges' => 'array',
+		]);
+
+		$p = function ($p, $data, &$container) {
+			foreach ($data as $key => $value) {
+				if (is_array($value) && array_diff_key($value, array_keys(array_keys($value)))) {
+					$p($p, $value, $container[$key]);
+				} else {
+					$container[$key] = $value;
+				}
+			}
+		};
+		$p($p, $validator->valid(), $this->container);
+
 		$this->save();
+		$validator->validate();
 	}
+
 }

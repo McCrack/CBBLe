@@ -1,17 +1,17 @@
 <!-- Base usage -->
 <!--
-<radio-set v-bind:items="options" labelClass="block"/>
+<radio-set checked="Item 2" v-on:change="action" v-bind:items="['Item 1', 'Item 2']" labelClass="block"/>
 -->
 <template>
   <div>
     <label v-bind:class="labelClass || ''"
-           v-for="([label, value], index) of items"
+           v-for="(value, index) of items"
            v-bind:key="index">
       <input type="radio"
              v-model="model"
              v-bind:value="value"
              hidden>
-      <span>{{label}}</span>
+      <span class="capitalize">{{value}}</span>
     </label>
   </div>
 </template>
@@ -21,6 +21,7 @@
     name: "RadioSet",
     props: {
       labelClass: String,
+      checked: String,
       items: {
         type: Array,
         default () {
@@ -28,16 +29,25 @@
         }
       }
     },
-    data () {
+    data() {
       return {
-        model: null
-      }
+        selected: null
+      };
     },
-    watch: {
-      model () {
-        console.log(this.model)
-      }
-    }
+    created() {
+      this.selected = this.checked;
+    },
+    computed: {
+      model: {
+        get() {
+          return this.selected;
+        },
+        set(value) {
+          this.selected = value;
+          this.$emit('change', value);
+        },
+      },
+    },
   }
 </script>
 

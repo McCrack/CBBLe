@@ -2,23 +2,23 @@
   'site_name' => 'C-BBLe',
   'email' => 'info@c-bble.local',
   'logo' => '/logo.png',
-  'language' => 'en',
-  'location' => 'en',
+  'language' => 'uk',
+  'location' => 'ua',
   'languages' => 
   array (
     'uk' => 'ua',
-    'ru' => 'ru',
     'en' => 'en',
+    'ru' => 'ru',
   ),
   'phones' => 
   array (
-    0 => '(000) 000-0000',
-    1 => '(000) 000-0001',
+    0 => '(066) 717-0259',
+    1 => '(096) 521-6303',
   ),
   'currency_rates' => 
   array (
-    'UAH' => 1,
-    'USD' => 26,
-    'EUR' => 29,
+    'UAH' => '1',
+    'USD' => '26',
+    'EUR' => '29',
   ),
 );

@@ -27,6 +27,6 @@ export default new Vuex.Store({
     },
     CLEAR_ERROR_LOG({state}) {
       state.errors = [];
-    }
+    },
   }
 })

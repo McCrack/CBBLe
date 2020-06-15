@@ -1,19 +1,49 @@
-<?php
-
-return [
-  'language' => "uk",
-  'theme' => "light",
-
-  'privileges' => [
-  	'Settings' => ["admin", "developer"],
-  	'Explorer' => [],
-  ],
-  'access' => [
-  	'Explorer' => ["admin", "developer"],
-  	'Users' => ["admin", "developer"],
-  	'Dictionaries' => ["admin", "developer"],
-  	'Materials' => ["admin", "developer"],
-  	'Mediasets' => ["admin", "developer"],
-  	'Microdata' => ["admin", "developer"],
-  ],
-];
+<?php return array (
+  'language' => 'uk',
+  'theme' => 'light',
+  'privileges' => 
+  array (
+    'Settings' => 
+    array (
+      0 => 'developer',
+      1 => 'admin',
+    ),
+    'Explorer' => 
+    array (
+    ),
+  ),
+  'access' => 
+  array (
+    'Materials' => 
+    array (
+      0 => 'developer',
+      1 => 'admin',
+    ),
+    'Dictionaries' => 
+    array (
+      0 => 'developer',
+      1 => 'admin',
+    ),
+    'Users' => 
+    array (
+      0 => 'developer',
+      1 => 'admin',
+    ),
+    'Explorer' => 
+    array (
+      0 => 'developer',
+      1 => 'admin',
+    ),
+    'Microdata' => 
+    array (
+      0 => 'admin',
+      1 => 'developer',
+      2 => 'suspend',
+    ),
+    'Mediasets' => 
+    array (
+      0 => 'developer',
+      1 => 'admin',
+    ),
+  ),
+);

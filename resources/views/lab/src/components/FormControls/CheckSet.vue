@@ -38,19 +38,16 @@
                 }
             }
         },
-        data () {
-            return {
-                model: []
-            }
+        computed: {
+          model: {
+            get() {
+              return this.checkeds;
+            },
+            set(value) {
+              this.$emit('change', value);
+            },
+          },
         },
-        created() {
-          this.model = this.checkeds;
-        },
-        watch: {
-            model () {
-                this.$emit('change', this.model);
-            }
-        }
     }
 </script>
 

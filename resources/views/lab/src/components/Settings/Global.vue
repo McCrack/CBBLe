@@ -100,7 +100,7 @@
               return this.GLOBAL_SETTINGS.theme;
             },
             set(value) {
-              this.patch('theme', value)
+              this.patch('theme', value);
             },
           },
           language: {
@@ -108,7 +108,7 @@
               return this.GLOBAL_SETTINGS.language;
             },
             set(value) {
-              this.patch('language', value)
+              this.patch('language', value);
             },
           },
 
@@ -116,10 +116,12 @@
         methods: {
           ...mapActions(['FETCH_GLOBAL_SETTINGS']),
           changeAccess(module, roles) {
-            console.table(module, roles)
+            this.GLOBAL_SETTINGS.access[module] = roles;
+            this.patch('access', {[module]: roles});
           },
           changePrivileges(module, roles) {
-            console.table(module, roles)
+            this.GLOBAL_SETTINGS.privileges[module] = roles;
+            this.patch('privileges', {[module]: roles});
           },
           patch(field, value) {
             this.$store.dispatch('PATCH_FIELD', {
@@ -133,7 +135,7 @@
             }).catch(errors => {
               this.$store.dispatch('ERRORS_TO_LOG', errors);
             });
-          },
+          }
         },
         created() {
           this.FETCH_GLOBAL_SETTINGS();
