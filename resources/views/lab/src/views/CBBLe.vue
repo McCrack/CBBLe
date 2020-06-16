@@ -34,7 +34,7 @@
       </div> <!--/BAR -->
       <!-- TABs -->
       <keep-alive>
-        <component class="tab flex-basis full-height overflow-y-auto box"
+        <component class="tab flex-grow full-height overflow-y-auto box"
                    v-on:mount-module="mountModule"
                    v-bind:is="currentTab"></component>
       </keep-alive>

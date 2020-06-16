@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form class="full-width" v-if="FRONTEND_SETTINGS.site_name">
     <input-field v-model="site_name" label="Site name" class="full-width my-5"/>
     <input-field v-model="email" label="E-Mail" class="full-width my-5"/>
     <input-field v-model="logo" label="Logo" class="full-width my-5"/>
@@ -46,6 +46,7 @@
         v-bind:rows="FRONTEND_SETTINGS.currency_rates"></specifics-table>
     </div>
   </form>
+  <Preloader v-else class="transparent"/>
 </template>
 
 <script>

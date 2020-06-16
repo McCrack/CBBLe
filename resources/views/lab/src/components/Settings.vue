@@ -10,7 +10,7 @@
       </label>
       <label class="inline-block mx-5 font-16 font-light cursor-pointer">
         <input type="radio" v-model="tab" value="front-end" hidden>
-        <a v-bind:class="{'font-medium underline': (tab === 'FrontEnd')}">Front-end</a>
+        <a v-bind:class="{'font-medium underline': (tab === 'front-end')}">Front-end</a>
       </label>
       <keep-alive>
         <component class="mt-20"

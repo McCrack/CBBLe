@@ -38,7 +38,7 @@ export default {
     },
     FETCH_GLOBAL_SETTINGS({ commit }) {
       return http
-        .get("/lab/settings/global")
+        .get("/lab/settings/lab")
         .then((response) => {
           commit("updateGlobal", response.data);
         });

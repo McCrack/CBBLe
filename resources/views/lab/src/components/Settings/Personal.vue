@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form class="full-width" v-if="PERSONAL_SETTINGS.id">
     <input-field v-model="name" label="Name" class="full-width my-5"/>
     <input-field v-model="email" label="E-Mail" class="full-width my-5"/>
     <input-field v-model="password" placeholder="∗∗∗∗∗∗∗∗" label="Password" class="full-width my-5"/>
@@ -14,6 +14,7 @@
         v-bind:options="PERSONAL_SETTINGS.languages">Language</select-field>
     </div>
   </form>
+  <Preloader v-else class="transparent"/>
 </template>
 
 <script>

@@ -4,11 +4,13 @@
 namespace App\Lab;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PatchController extends \App\Http\Controllers\Controller
 {
 	/**
 	 * @param Request $request
+	 * @return Response
 	 */
 	public function __invoke(Request $request)
 	{
@@ -18,5 +20,6 @@ class PatchController extends \App\Http\Controllers\Controller
 				$model->patch($data);
 			}
 		}
+		return response(null, 204);
 	}
 }

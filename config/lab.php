@@ -1,6 +1,14 @@
-<?php return array (
+<?php
+
+return array (
   'language' => 'uk',
   'theme' => 'light',
+  'languages' => 
+  array (
+    0 => 'uk',
+    1 => 'en',
+    2 => 'ru',
+  ),
   'privileges' => 
   array (
     'Settings' => 

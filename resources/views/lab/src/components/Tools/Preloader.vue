@@ -1,5 +1,5 @@
 <template>
-  <div class="full-width full-height white-bg flex-center-center">
+  <div class="full-width full-height flex-center-center">
     <loader/>
   </div>
 </template>

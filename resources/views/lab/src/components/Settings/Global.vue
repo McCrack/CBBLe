@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form v-if="GLOBAL_SETTINGS.language">
     <div class="my-20 flex-between-end">
       <select-field
         class="float-right half-width"
@@ -86,6 +86,7 @@
       <hr class="h-line white-bg-3 my-20">
     </div>
   </form>
+  <Preloader v-else class="transparent"/>
 </template>
 
 <script>

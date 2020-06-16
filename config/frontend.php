@@ -1,4 +1,6 @@
-<?php return array (
+<?php
+
+return array (
   'site_name' => 'C-BBLe',
   'email' => 'info@c-bble.local',
   'logo' => '/logo.png',

@@ -6,7 +6,6 @@ namespace App\Lab\Models;
 
 use App\Lab\Models\Interfaces\PatchModelInterface;
 use Exception;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class Settings implements PatchModelInterface
@@ -15,11 +14,33 @@ class Settings implements PatchModelInterface
 	 * @var string
 	 */
 	private string $path;
-
+	/**
+	 * @var array
+	 */
+	private array $rules = [
+		'site_name' => 'string|max:64',
+		'email' => 'email|string|max:64',
+		'language' => 'alpha|size:2',
+		'locations' => 'alpha|size:2',
+		'theme' => 'string|max:16',
+		'currency_rates' => 'array',
+		'phones' => 'array',
+		'languages' => 'array',
+		'access' => 'array',
+		'privileges' => 'array',
+	];
 	/**
 	 * @var array
 	 */
 	private array $container = [];
+
+	/**
+	 * @return array
+	 */
+	public function toArray(): array
+	{
+		return $this->container;
+	}
 
 	/**
 	 * @param string $configFileName
@@ -27,16 +48,12 @@ class Settings implements PatchModelInterface
 	 */
 	public function load(string $configFileName): void
 	{
-		$path = $this->makePath($configFileName);
-		if (Storage::disk('root')->exists($path)) {
-			$this->container = include base_path($path);
+		$this->path = config_path("{$configFileName}.php");
+		if (file_exists($this->path)) {
+			$this->container = include $this->path;
 		}
 	}
-	private function makePath($fileName)
-	{
-		$this->path = "config/{$fileName}.php";
-		return $this->path;
-	}
+
 	/**
 	 * @param string $key
 	 * @return mixed|null
@@ -48,9 +65,9 @@ class Settings implements PatchModelInterface
 
 	/**
 	 * @param string $key
-	 * @param mixed $value
+	 * @param $value
 	 */
-	public function __set(string $key, mixed $value): void
+	public function __set(string $key, $value): void
 	{
 		$this->container[$key] = $value;
 	}
@@ -64,8 +81,10 @@ class Settings implements PatchModelInterface
 		if (empty($this->path)) {
 			throw new Exception("Undefined config file name");
 		}
-		$saved = Storage::disk('root')
-			->put($this->path, '<?php return '. var_export($this->container, true) . ';');
+		$saved = file_put_contents(
+			$this->path,
+			"<?php\n\nreturn ". var_export($this->container, true) . ";\n"
+		);
 		return (BOOL)$saved;
 	}
 
@@ -75,18 +94,7 @@ class Settings implements PatchModelInterface
 	 */
 	public function patch(array $data): void
 	{
-		$validator = Validator::make($data, [
-			'site_name' => 'string|max:64',
-			'email' => 'email|string|max:64',
-			'language' => 'alpha|size:2',
-			'locations' => 'alpha|size:2',
-			'theme' => 'string|max:16',
-			'currency_rates' => 'array',
-			'phones' => 'array',
-			'languages' => 'array',
-			'access' => 'array',
-			'privileges' => 'array',
-		]);
+		$validator = Validator::make($data, $this->rules);
 
 		$p = function ($p, $data, &$container) {
 			foreach ($data as $key => $value) {
